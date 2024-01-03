@@ -65,7 +65,7 @@ class Mixer:
         genre = self._getRandomGenre()
         file = self.FILE_PATH + os.sep + genre + "_" + when + "_drums.ogg"
         self.mix.append(file)
-    
+
     def _getRandomMain(self, when):
         genre = self._getRandomGenre()
         file = self.FILE_PATH + os.sep + genre + "_" + when + "_main.ogg"
@@ -94,7 +94,7 @@ class Mixer:
                 self.mix.append(file)
         # maybe add secondary
         if genre in self.SECONDARY:
-            #print("found secondary: " + genre)
+            # print("found secondary: " + genre)
             if random.random() < self.SECONDARY_CHANCE / 100:
                 self._appendSecondaryTrack(genre, when)
 
@@ -113,10 +113,10 @@ class Mixer:
     def _appendSingleTrack(self, when):
         genre = self._getRandomGenre()
         instrument_list = self.INSTRUMENTS
-        instrument="main"
+        instrument = "main"
         if genre in self.SECONDARY:  # REMOVE?
             instrument_list = ["main", "drums", "secondary"]
-            instrument = random.choices(instrument_list,[3,3,1])[0]
+            instrument = random.choices(instrument_list, [3, 3, 1])[0]
         else:
             instrument = random.choices(self.INSTRUMENTS)[0]
         file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
@@ -146,7 +146,7 @@ class Mixer:
                 print("COUNT=NaN WTF")
 
         return self.mix
-    
+
     def _lastTouch(self):
         # hyperpop main alone bad
         all_mains = [string for string in self.mix if "main" in string]

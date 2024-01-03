@@ -5,7 +5,7 @@ from pydub import AudioSegment
 from randomizer import Mixer
 from pprint import pprint
 
-COMPLETE_FILE = "tracks"+os.sep+"final.ogg"
+COMPLETE_FILE = "tracks" + os.sep + "final.ogg"
 
 
 def play_track(file):
@@ -14,13 +14,13 @@ def play_track(file):
     channel.set_volume(0.5)
     sound = pygame.mixer.Sound(file)
     channel.play(sound)
-     
+
     # wait until it finishes
     while channel.get_busy():
         time.sleep(1)
-    
+
     pygame.mixer.quit()
-    
+
     return True
 
 
