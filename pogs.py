@@ -1,5 +1,6 @@
 import random
 
+
 class Pogs:
     tracks = [
         [
@@ -15,6 +16,11 @@ class Pogs:
             "./tracks/disco_late_main.ogg",
             "./tracks/hyperpop_late_main.ogg",
             "./tracks/illbeats_late.ogg",
+        ],
+        [
+            "./tracks/country_early_drums.ogg",
+            "./tracks/country_early_main.ogg",
+            "./tracks/illbeats_early.ogg",
         ],
     ]
 

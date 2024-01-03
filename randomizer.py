@@ -31,7 +31,7 @@ class Mixer:
     SONG_COUNT_WEIGHT = [
         5,
         4,
-        2,
+        3,
         1,
     ]
     ######## WHEN ########
@@ -108,7 +108,7 @@ class Mixer:
         genre = self._getRandomGenre()
         instrument_list = self.INSTRUMENTS
         instrument="main"
-        if genre in self.SECONDARY:
+        if genre in self.SECONDARY:  # REMOVE?
             instrument_list = ["main", "drums", "secondary"]
             instrument = random.choices(instrument_list,[3,3,1])[0]
         else:
