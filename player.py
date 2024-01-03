@@ -5,7 +5,7 @@ from pydub import AudioSegment
 from randomizer import Mixer
 from pprint import pprint
 
-COMPLETE_FILE = "tracks/final.ogg"
+COMPLETE_FILE = "tracks"+os.sep+"final.ogg"
 
 
 def play_track(file):
@@ -18,6 +18,8 @@ def play_track(file):
     # wait until it finishes
     while channel.get_busy():
         time.sleep(1)
+    
+    pygame.mixer.quit()
     
     return True
 
@@ -47,13 +49,11 @@ def overlay_multiple_ogg(files):
 if __name__ == "__main__":
     # get random mix
     files = Mixer().getRandomMix()
+    print("\n")
     pprint(files)
 
     # create final track
     final = overlay_multiple_ogg(files)
 
     # Play the final track
-    
     play_track(final)
-
-    pygame.mixer.quit()
