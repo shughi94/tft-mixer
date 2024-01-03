@@ -2,7 +2,7 @@ import pygame, time, os
 
 from pydub import AudioSegment
 
-from app.randomizer import Mixer
+from randomizer import Mixer
 from pprint import pprint
 
 COMPLETE_FILE = "tracks/final.ogg"
