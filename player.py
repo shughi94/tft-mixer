@@ -8,10 +8,18 @@ from pprint import pprint
 COMPLETE_FILE = "tracks/final.ogg"
 
 
-def play_track(file, channel):
+def play_track(file):
+    pygame.mixer.init()
+    channel = pygame.mixer.Channel(0)
     channel.set_volume(0.5)
     sound = pygame.mixer.Sound(file)
     channel.play(sound)
+     
+    # wait until it finishes
+    while channel.get_busy():
+        time.sleep(1)
+    
+    return True
 
 
 def overlay_multiple_ogg(files):
@@ -45,11 +53,7 @@ if __name__ == "__main__":
     final = overlay_multiple_ogg(files)
 
     # Play the final track
-    pygame.mixer.init()
-    channel = pygame.mixer.Channel(0)
-    play_track(final, channel)
+    
+    play_track(final)
 
-    # wait until it finishes
-    while channel.get_busy():
-        time.sleep(1)
     pygame.mixer.quit()

@@ -1,3 +1,5 @@
+import random
+
 class Pogs:
     tracks = [
         [
@@ -15,3 +17,6 @@ class Pogs:
             "./tracks/illbeats_late.ogg",
         ],
     ]
+
+    def getRandomPog(self):
+        return random.choices(self.tracks)
