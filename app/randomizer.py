@@ -41,7 +41,7 @@ class Mixer:
     ######## SECONDARY #######
     SECONDARY = ["kda", "heartsteel", "pentakill"]
     SECONDARY_WEIGHT = [3, 1, 3]
-    SECONDARY_CHANCE = 100  # % chance of adding a secondary
+    SECONDARY_CHANCE = 69  # % chance of adding a secondary
 
     def __init__(self):
         self.mix = []
@@ -88,11 +88,9 @@ class Mixer:
                 self.mix.append(file)
         # maybe add secondary
         if genre in self.SECONDARY:
-            if random.random() > self.SECONDARY_CHANCE / 100:
-                secondary_choice = random.choices(
-                    self.SECONDARY, self.SECONDARY_WEIGHT
-                )[0]
-                self._appendSecondaryTrack(secondary_choice, when)
+            print("found secondary: " + genre)
+            if random.random() < self.SECONDARY_CHANCE / 100:
+                self._appendSecondaryTrack(genre, when)
 
     def _appendTwoTracks(self, when):
         if random.random() < self.KEEP_TOGETHER_TRACK_CHANCE / 100:
