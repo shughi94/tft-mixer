@@ -40,7 +40,6 @@ if __name__ == "__main__":
     # get random mix
     files = Mixer().getRandomMix()
     pprint(files)
-    exit()
 
     # create final track
     final = overlay_multiple_ogg(files)
