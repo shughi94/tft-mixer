@@ -41,7 +41,7 @@ class Mixer:
     ######## SECONDARY #######
     SECONDARY = ["kda", "heartsteel", "pentakill"]
     SECONDARY_WEIGHT = [3, 1, 3]
-    SECONDARY_CHANCE = 69  # % chance of adding a secondary
+    SECONDARY_CHANCE = 90  # % chance of adding a secondary
 
     def __init__(self):
         self.mix = []
@@ -70,7 +70,7 @@ class Mixer:
         if genre == "hyperpop" and when == "early":
             file = self.FILE_PATH + "/" + genre + "_" + when + "_main.ogg"
             self.mix.append(file)
-            # I guess append fucking random truck part
+            # I guess append a fucking random drums part
             self._getRandomDrums(when)
         else:
             # append both main and drums

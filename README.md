@@ -4,4 +4,5 @@ need ffmpeg?
 pip3 install simpleaudio
 
 # TODO
-secondary?
+class Track
+local DB? easier queries?
