@@ -161,7 +161,6 @@ class Mixer:
         #### WHEN ####
         when_choice = random.choices(self.WHEN, self.WHEN_WEIGHT)[0]
         self.when = when_choice
-        # self.mix.append(when_choice)
 
         #### MIX ####
         self.mix = []

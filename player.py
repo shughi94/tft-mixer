@@ -3,10 +3,10 @@ import pygame, time, os
 from pydub import AudioSegment
 
 from randomizer import Mixer
+from pogs import Pogs 
 from pprint import pprint
 
 COMPLETE_FILE = "tracks" + os.sep + "final.ogg"
-
 
 def play_track(file):
     pygame.mixer.init()
@@ -49,6 +49,7 @@ def overlay_multiple_ogg(files):
 if __name__ == "__main__":
     # get random mix
     files = Mixer().getRandomMix()
+    files = Pogs().getRandomPog()
     print("\n")
     pprint(files)
 

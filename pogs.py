@@ -25,4 +25,4 @@ class Pogs:
     ]
 
     def getRandomPog(self):
-        return random.choices(self.tracks)
+        return random.choices(self.tracks)[0]
