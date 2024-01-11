@@ -1,9 +1,9 @@
 # tftmixer
- 
-need ffmpeg?
-pip3 install simpleaudio
+
+pip3 install pydub
+apt-get install python3-pydub
 
 # TODO
-move pydub overlay to Mixer, more control on loud/quit
-class Track
-local DB? easier queries?
+https://pypi.org/project/PyAudio/ ??
+check bitrate export
+

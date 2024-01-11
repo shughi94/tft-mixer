@@ -1,0 +1,83 @@
+import sys
+from predefined import Pogs, GenresEarly, GenresLate, EnhancesEarly, EnhancesLate
+from player import Player
+from randomizer import Randomizer
+
+from pprint import pprint
+
+
+def arg2tracks(args):
+    tracks = []
+
+    predefined = GenresEarly
+    predefined_enhance = EnhancesEarly
+    if "--late" in args:
+        predefined = GenresLate
+        predefined_enhance = EnhancesLate
+
+    # main genre
+    for arg in args:
+        match arg:
+            case "--random":
+                tracks = Randomizer().getRandomMix()
+                continue
+            case "--pogs":
+                tracks = Pogs().getRandomPog()
+                continue
+            case "--country":
+                tracks += predefined.country
+            case "--pentakill":
+                tracks += predefined.pentakill
+            case "--heartsteel":
+                tracks += predefined.heartsteel
+            case "--truedamage":
+                tracks += predefined.truedamage
+            case "--kda":
+                tracks += predefined.kda
+            case "--disco":
+                tracks += predefined.disco
+            case "--8bit":
+                tracks += predefined.bit
+            case "--emo":
+                tracks += predefined.emo
+            case "--punk":
+                tracks += predefined.punk
+            case "--edm":
+                tracks += predefined.edm
+            case "--hyperpop":
+                tracks += predefined.hyperpop
+            case _:
+                print("")
+    # add enhances
+    for arg in args:
+        match arg:
+            case "--jazz":
+                tracks.append(predefined_enhance.jazz)
+            case "--illbeats":
+                tracks.append(predefined_enhance.illbeats)
+            case "--mixmaster":
+                tracks.append(predefined_enhance.mixmaster)
+            case "--maestro":
+                tracks.append(predefined_enhance.maestro)
+            case _:
+                print("")
+
+    pprint(tracks)
+    return tracks
+
+
+# Check args?
+# if len(sys.argv) != 2:
+#     print("Usage: python3 main.py <arg1> <arg2>")
+#     print("arg1 is required and can be:")
+#     print("a type: --random, --pogs")
+#     print("a genre: --country, --8bit, --pentakill, ...")
+#     print("\n")
+#     print("arg2 is optional and can only be '--jhin, --beats, --jazz, --mixmaster'")
+#     sys.exit(1)
+
+tracks = arg2tracks(sys.argv)
+
+player = Player(volume=0.5, frequency=48000, buffer=2048)
+player.overlay_multiple_ogg(tracks)
+player.play_track()

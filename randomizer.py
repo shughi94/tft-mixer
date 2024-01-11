@@ -2,7 +2,7 @@ import random
 import os
 
 
-class Mixer:
+class Randomizer:
     FILE_PATH = "tracks"
     INSTRUMENTS = ["drums", "main"]
     KEEP_TOGETHER_TRACK_CHANCE = 85  # when choosing 2 tracks, this is the % chance of keeping together drums + main of same genre
@@ -25,11 +25,11 @@ class Mixer:
 
     ######## ENHANCES ########
     ENHANCES = ["nope", "mixmaster", "illbeats", "maestro", "jazz"]
-    ENHANCES_WEIGHT = [16, 2, 2, 1, 0]
+    ENHANCES_WEIGHT = [16, 2, 2, 1, 1]
 
     ######## MIXES ########
-    SONG_COUNT = [2, 3, 4, 5]
-    SONG_COUNT_WEIGHT = [
+    TRACK_COUNT = [2, 3, 4, 5]
+    TRACK_COUNT_WEIGHT = [
         10,
         8,
         2,
@@ -42,7 +42,9 @@ class Mixer:
     ######## SECONDARY #######
     SECONDARY = ["kda", "heartsteel", "pentakill"]
     SECONDARY_WEIGHT = [3, 2, 3]
-    SECONDARY_CHANCE = 90  # % chance of adding a secondary when 2 of same genre are selected
+    SECONDARY_CHANCE = (
+        90  # % chance of adding a secondary when 2 of same genre are selected
+    )
 
     def __init__(self):
         self.mix = []
@@ -116,7 +118,7 @@ class Mixer:
         instrument = "main"
         if genre in self.SECONDARY:  # REMOVE?
             instrument_list = ["main", "drums", "secondary"]
-            instrument = random.choices(instrument_list, [3, 3, 1])[0]
+            instrument = random.choices(instrument_list, [3, 3, 2])[0]
         else:
             instrument = random.choices(self.INSTRUMENTS)[0]
         file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
@@ -163,7 +165,7 @@ class Mixer:
 
         #### MIX ####
         self.mix = []
-        count_choice = random.choices(self.SONG_COUNT, self.SONG_COUNT_WEIGHT)[0]
+        count_choice = random.choices(self.TRACK_COUNT, self.TRACK_COUNT_WEIGHT)[0]
         self._appendTracks(count_choice, when_choice)
 
         # #### SECONDARY ####
