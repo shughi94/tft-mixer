@@ -1,4 +1,7 @@
-import pygame, time, os
+import os 
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+
+import pygame, time
 
 from pydub import AudioSegment
 
@@ -9,7 +12,7 @@ from pprint import pprint
 COMPLETE_FILE = "tracks" + os.sep + "final.ogg"
 
 def play_track(file):
-    pygame.mixer.init()
+    pygame.mixer.init(48000, -16, 1, 2048)
     channel = pygame.mixer.Channel(0)
     channel.set_volume(0.5)
     sound = pygame.mixer.Sound(file)
@@ -29,11 +32,13 @@ def overlay_multiple_ogg(files):
     if os.path.exists(COMPLETE_FILE):
         os.remove(COMPLETE_FILE)
 
-    # combine ogg
+    # combine ogg by overlay
     first = True
     combined = None
     for file in files:
         sound = AudioSegment.from_ogg(file)
+        if "maestro" in file:
+            sound = sound - 3.5  # decrese decibel, -10 too max
         old_combined = combined
         if first:
             combined = sound
@@ -48,8 +53,8 @@ def overlay_multiple_ogg(files):
 
 if __name__ == "__main__":
     # get random mix
-    files = Mixer().getRandomMix()
-    files = Pogs().getRandomPog()
+    #files = Mixer().getRandomMix()
+    files = Pogs().getThePog()
     print("\n")
     pprint(files)
 

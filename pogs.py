@@ -2,6 +2,11 @@ import random
 
 
 class Pogs:
+    ultra_pog = [
+        "./tracks/country_early_drums.ogg",
+        "./tracks/country_early_main.ogg",
+    ]
+
     tracks = [
         [
             "./tracks/hyperpop_late_drums.ogg",
@@ -20,9 +25,11 @@ class Pogs:
         [
             "./tracks/country_early_drums.ogg",
             "./tracks/country_early_main.ogg",
-            "./tracks/illbeats_early.ogg",
         ],
     ]
 
     def getRandomPog(self):
-        return random.choices(self.tracks)[0]
+        return random.choice(self.tracks)
+
+    def getThePog(self):
+        return self.ultra_pog

@@ -21,7 +21,7 @@ class Mixer:
         "pentakill",
         "emo",
     ]
-    GENRES_WEIGHT = [1, 1, 2, 0, 2, 3, 3, 3, 3, 2, 2]
+    GENRES_WEIGHT = [5, 5, 7, 1, 5, 6, 6, 6, 8, 6, 5]
 
     ######## ENHANCES ########
     ENHANCES = ["nope", "mixmaster", "illbeats", "maestro", "jazz"]
@@ -30,19 +30,19 @@ class Mixer:
     ######## MIXES ########
     SONG_COUNT = [2, 3, 4, 5]
     SONG_COUNT_WEIGHT = [
-        5,
-        4,
-        3,
+        10,
+        8,
+        2,
         1,
     ]
     ######## WHEN ########
     WHEN = ["early", "late"]
-    WHEN_WEIGHT = [3, 2]
+    WHEN_WEIGHT = [1, 1]
 
     ######## SECONDARY #######
     SECONDARY = ["kda", "heartsteel", "pentakill"]
-    SECONDARY_WEIGHT = [3, 1, 3]
-    SECONDARY_CHANCE = 90  # % chance of adding a secondary
+    SECONDARY_WEIGHT = [3, 2, 3]
+    SECONDARY_CHANCE = 90  # % chance of adding a secondary when 2 of same genre are selected
 
     def __init__(self):
         self.mix = []
@@ -150,11 +150,10 @@ class Mixer:
     def _lastTouch(self):
         # hyperpop main alone bad
         all_mains = [string for string in self.mix if "main" in string]
-        print("\n")
 
         if len(all_mains) == 1 and any("hyperpop" in string for string in all_mains):
             self._getRandomMain(self.when)
-
+        # 3 drums too much?
         return True
 
     def getRandomMix(self):
