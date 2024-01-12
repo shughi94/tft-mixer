@@ -17,13 +17,12 @@ class Player:
 
     def play_track(self):
         pygame.mixer.init(self.frequency, -16, 1, self.buffer)
-        channel = pygame.mixer.Channel(0)
-        channel.set_volume(self.volume)
-        sound = pygame.mixer.Sound(self.COMPLETE_FILE)
-        channel.play(sound)
+        pygame.mixer.music.set_volume(self.volume)
+        pygame.mixer.music.load(self.COMPLETE_FILE)
+        pygame.mixer.music.play()
 
         # wait until it finishes
-        while channel.get_busy():
+        while pygame.mixer.music.get_busy():
             time.sleep(1)
 
         pygame.mixer.quit()
