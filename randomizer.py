@@ -149,7 +149,9 @@ class Randomizer:
             "maestro" in track for track in self.mix
         ):  # remove jazz fuck that
             self.mix = list(filter(lambda track: "jazz" not in track, self.mix))
-
+        # small chance of no drums if hyperpop is selected
+        if not any("drums" in track for track in self.mix):
+            self._getRandomDrums(self.when)
         # 3 drums too much?
         # early with 4/5 too much?
         return True
