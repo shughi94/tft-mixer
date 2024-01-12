@@ -5,14 +5,14 @@ class EnhancesEarly:
     maestro = "./tracks/maestro_early.ogg"
     illbeats = "./tracks/illbeats_early.ogg"
     mixmaster = "./tracks/mixmaster_early.ogg"
-    jazz = "./tracks/jazz_early_main.ogg"
+    jazz = "./tracks/jazz_early.ogg"
 
 
 class EnhancesLate:
     maestro = "./tracks/maestro_late.ogg"
     illbeats = "./tracks/illbeats_late.ogg"
     mixmaster = "./tracks/mixmaster_late.ogg"
-    jazz = "./tracks/jazz_late_main.ogg"
+    jazz = "./tracks/jazz_late.ogg"
 
 
 class GenresEarly:
