@@ -16,7 +16,7 @@ class Player:
         self.volume = volume
 
     def play_track(self):
-        pygame.mixer.init(self.frequency, -16, 1, self.buffer)
+        pygame.mixer.init(self.frequency, -16, 4, self.buffer)
         pygame.mixer.music.set_volume(self.volume)
         pygame.mixer.music.load(self.COMPLETE_FILE)
         pygame.mixer.music.play()

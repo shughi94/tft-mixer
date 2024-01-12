@@ -79,6 +79,6 @@ def args2tracks(args):
 
 tracks = args2tracks(sys.argv)
 
-player = Player(volume=0.5, frequency=44100, buffer=512)
+player = Player(volume=0.5, frequency=44100, buffer=4096)
 player.overlay_multiple_ogg(tracks)
 player.play_track()
