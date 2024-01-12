@@ -6,7 +6,7 @@ from randomizer import Randomizer
 from pprint import pprint
 
 
-def arg2tracks(args):
+def args2tracks(args):
     tracks = []
 
     predefined = GenresEarly
@@ -47,7 +47,7 @@ def arg2tracks(args):
             case "--hyperpop":
                 tracks += predefined.hyperpop
             case _:
-                print("")
+                pass
     # add enhances
     for arg in args:
         match arg:
@@ -60,7 +60,7 @@ def arg2tracks(args):
             case "--maestro":
                 tracks.append(predefined_enhance.maestro)
             case _:
-                print("")
+                pass
 
     pprint(tracks)
     return tracks
@@ -76,7 +76,8 @@ def arg2tracks(args):
 #     print("arg2 is optional and can only be '--jhin, --beats, --jazz, --mixmaster'")
 #     sys.exit(1)
 
-tracks = arg2tracks(sys.argv)
+
+tracks = args2tracks(sys.argv)
 
 player = Player(volume=0.5, frequency=48000, buffer=2048)
 player.overlay_multiple_ogg(tracks)

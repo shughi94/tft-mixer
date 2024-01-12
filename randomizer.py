@@ -25,16 +25,23 @@ class Randomizer:
 
     ######## ENHANCES ########
     ENHANCES = ["nope", "mixmaster", "illbeats", "maestro", "jazz"]
-    ENHANCES_WEIGHT = [16, 2, 2, 1, 1]
+    ENHANCES_WEIGHT = [25, 3, 3, 2, 1]
 
     ######## MIXES ########
     TRACK_COUNT = [2, 3, 4, 5]
-    TRACK_COUNT_WEIGHT = [
-        10,
+    TRACK_COUNT_WEIGHT_EARLY = [
         8,
-        2,
+        5,
         1,
+        0,
     ]
+    TRACK_COUNT_WEIGHT_LATE = [
+        8,
+        8,
+        5,
+        2,
+    ]
+
     ######## WHEN ########
     WHEN = ["early", "late"]
     WHEN_WEIGHT = [1, 1]
@@ -63,42 +70,33 @@ class Randomizer:
 
         return genre
 
+    def _appendTrack(self, genre, when, instrument):
+        file = ""
+        # fucking hyperpop do not have drums early
+        if genre == "hyperpop" and when == "early" and instrument == "drums":
+            file = self.FILE_PATH + os.sep + "hyperpop_early_main.ogg"
+        else:
+            file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
+        if file not in self.mix:
+            self.mix.append(file)
+
     def _getRandomDrums(self, when):
         genre = self._getRandomGenre()
-        file = self.FILE_PATH + os.sep + genre + "_" + when + "_drums.ogg"
-        self.mix.append(file)
+        self._appendTrack(genre, when, "drums")
 
     def _getRandomMain(self, when):
         genre = self._getRandomGenre()
-        file = self.FILE_PATH + os.sep + genre + "_" + when + "_main.ogg"
-        self.mix.append(file)
+        self._appendTrack(genre, when, "main")
 
     def _appendBothInstruments(self, genre, when):
-        # fucking hyperpop do not have drums early
-        if genre == "hyperpop" and when == "early":
-            file = self.FILE_PATH + os.sep + genre + "_" + when + "_main.ogg"
-            self.mix.append(file)
-            # I guess append a fucking random drums part
-            self._getRandomDrums(when)
-        else:
-            # append both main and drums
-            for instrument in self.INSTRUMENTS:
-                file = (
-                    self.FILE_PATH
-                    + os.sep
-                    + genre
-                    + "_"
-                    + when
-                    + "_"
-                    + instrument
-                    + ".ogg"
-                )
-                self.mix.append(file)
+        # append both main and drums
+        for instrument in self.INSTRUMENTS:
+            self._appendTrack(genre, when, instrument)
         # maybe add secondary
         if genre in self.SECONDARY:
             # print("found secondary: " + genre)
             if random.random() < self.SECONDARY_CHANCE / 100:
-                self._appendSecondaryTrack(genre, when)
+                self._appendTrack(genre, when, "secondary")
 
     def _appendTwoTracks(self, when):
         if random.random() < self.KEEP_TOGETHER_TRACK_CHANCE / 100:
@@ -106,11 +104,9 @@ class Randomizer:
             self._appendBothInstruments(genre, when)
         else:
             genre = self._getRandomGenre()
-            file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + "drums.ogg"
-            self.mix.append(file)
+            self._appendTrack(genre, when, "drums")
             genre = self._getRandomGenre()
-            file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + "main.ogg"
-            self.mix.append(file)
+            self._appendTrack(genre, when, "main")
 
     def _appendSingleTrack(self, when):
         genre = self._getRandomGenre()
@@ -118,19 +114,12 @@ class Randomizer:
         instrument = "main"
         if genre in self.SECONDARY:  # REMOVE?
             instrument_list = ["main", "drums", "secondary"]
-            instrument = random.choices(instrument_list, [3, 3, 2])[0]
+            instrument = random.choices(instrument_list, [1, 1, 1])[0]
         else:
             instrument = random.choices(self.INSTRUMENTS)[0]
-        file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
-        if file not in self.mix:
-            self.mix.append(file)
+        self._appendTrack(genre, when, instrument)
 
-    def _appendSecondaryTrack(self, genre, when):
-        file = self.FILE_PATH + os.sep + genre + "_" + when + "_secondary.ogg"
-        if file not in self.mix:
-            self.mix.append(file)
-
-    def _appendTracks(self, count, when):
+    def _getMix(self, count, when):
         match count:
             case 2:
                 self._appendTwoTracks(when)
@@ -151,11 +140,18 @@ class Randomizer:
 
     def _lastTouch(self):
         # hyperpop main alone bad
-        all_mains = [string for string in self.mix if "main" in string]
-
-        if len(all_mains) == 1 and any("hyperpop" in string for string in all_mains):
+        all_mains = [track for track in self.mix if "main" in track]
+        if len(all_mains) == 1 and any("hyperpop" in track for track in all_mains):
             self._getRandomMain(self.when)
+
+        # maestro and jazz together do not go well
+        if any("jazz" in track for track in self.mix) and any(
+            "maestro" in track for track in self.mix
+        ):  # remove jazz fuck that
+            self.mix = list(filter(lambda track: "jazz" not in track, self.mix))
+
         # 3 drums too much?
+        # early with 4/5 too much?
         return True
 
     def getRandomMix(self):
@@ -165,13 +161,17 @@ class Randomizer:
 
         #### MIX ####
         self.mix = []
-        count_choice = random.choices(self.TRACK_COUNT, self.TRACK_COUNT_WEIGHT)[0]
-        self._appendTracks(count_choice, when_choice)
 
-        # #### SECONDARY ####
-        # if random.random() < self.SECONDARY_CHANCE / 100:
-        #     secondary_choice = random.choices(self.SECONDARY, self.SECONDARY_WEIGHT)[0]
-        #     self._appendSecondaryTrack(secondary_choice, when_choice)
+        # early tracks do not mesh well with lots of stuff -> different weights
+        if when_choice == "late":
+            count_choice = random.choices(
+                self.TRACK_COUNT, self.TRACK_COUNT_WEIGHT_LATE
+            )[0]
+        else:
+            count_choice = random.choices(
+                self.TRACK_COUNT, self.TRACK_COUNT_WEIGHT_EARLY
+            )[0]
+        self._getMix(count_choice, when_choice)
 
         #### ENHANCES ####
         enhances_final = []

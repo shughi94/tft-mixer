@@ -42,6 +42,8 @@ class Player:
             sound = AudioSegment.from_ogg(file)
             # if "maestro" in file:
             #     sound = sound - 3.5  # decrese decibel, -10 max
+            if "jazz" in file:
+                sound = sound - 2.5  # decrese decibel, -10 max
             old_combined = combined
             if first:
                 combined = sound
