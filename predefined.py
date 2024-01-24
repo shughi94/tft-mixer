@@ -125,6 +125,11 @@ class Pogs:
             "./tracks/disco_late_drums.ogg",
             "./tracks/disco_late_main.ogg",
             "./tracks/hyperpop_late_main.ogg",
+            "./tracks/jazz_late.ogg",
+        ],
+        [
+            "./tracks/punk_late_drums.ogg",
+            "./tracks/punk_late_main.ogg",
             "./tracks/illbeats_late.ogg",
         ],
     ]

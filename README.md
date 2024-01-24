@@ -39,3 +39,6 @@ might also need ffmpeg if on a toaster (maybe?)
 https://pypi.org/project/PyAudio/ ??
 check bitrate export
 
+# idk info
+`ffprobe tracks/8bit_early_main.ogg | grep Stream`
+
