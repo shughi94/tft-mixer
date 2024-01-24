@@ -5,7 +5,7 @@ import os
 class Randomizer:
     FILE_PATH = "tracks"
     INSTRUMENTS = ["drums", "main"]
-    KEEP_TOGETHER_TRACK_CHANCE = 85  # when choosing 2 tracks, this is the % chance of keeping together drums + main of same genre
+    KEEP_TOGETHER_TRACK_CHANCE = 91 # when choosing 2 tracks, this is the % chance of keeping together drums + main of same genre
 
     ######## GENRES ########
     GENRES = [
@@ -31,7 +31,7 @@ class Randomizer:
     TRACK_COUNT = [2, 3, 4, 5]
     TRACK_COUNT_WEIGHT_EARLY = [
         8,
-        5,
+        8,
         1,
         0,
     ]
@@ -125,7 +125,7 @@ class Randomizer:
                 self._appendTwoTracks(when)
             case 3:
                 self._appendTwoTracks(when)
-                self._appendSingleTrack(when)
+                self._getRandomMain(when)
             case 4:
                 self._appendTwoTracks(when)
                 self._appendTwoTracks(when)

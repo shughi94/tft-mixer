@@ -65,18 +65,6 @@ def args2tracks(args):
     pprint(tracks)
     return tracks
 
-
-# Check args?
-# if len(sys.argv) != 2:
-#     print("Usage: python3 main.py <arg1> <arg2>")
-#     print("arg1 is required and can be:")
-#     print("a type: --random, --pogs")
-#     print("a genre: --country, --8bit, --pentakill, ...")
-#     print("\n")
-#     print("arg2 is optional and can only be '--jhin, --beats, --jazz, --mixmaster'")
-#     sys.exit(1)
-
-
 tracks = args2tracks(sys.argv)
 
 player = Player(volume=0.5, frequency=44100, buffer=4096)
