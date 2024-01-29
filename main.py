@@ -5,6 +5,7 @@ from randomizer import Randomizer
 
 from pprint import pprint
 
+
 def _get_predefined_genre(arg, predefined):
     tracks = []
 
@@ -33,8 +34,9 @@ def _get_predefined_genre(arg, predefined):
             tracks += predefined.hyperpop
         case _:
             pass
-        
+
     return tracks
+
 
 def args_to_tracks(args):
     tracks = []
@@ -49,7 +51,6 @@ def args_to_tracks(args):
         predefined_enhance = EnhancesLate
 
     for arg in args:
-
         tmp_tracks = []
 
         arg_array = arg.split("_")
@@ -97,8 +98,16 @@ def args_to_tracks(args):
     pprint(tracks)
     return tracks
 
-tracks = args_to_tracks(sys.argv)
 
-player = Player(volume=0.5, frequency=44100, buffer=4096)
-player.overlay_multiple_ogg(tracks)
-player.play_track()
+loop = False
+if "--loop" in sys.argv:
+    loop = True
+
+first_time = True
+while first_time or loop:
+    first_time = False
+    tracks = args_to_tracks(sys.argv)
+    player = Player(volume=0.5, frequency=44100, buffer=4096)
+    player.overlay_multiple_ogg(tracks)
+    player.play_track()
+    print("\n")

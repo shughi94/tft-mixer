@@ -21,7 +21,7 @@ class Randomizer:
         "pentakill",
         "emo",
     ]
-    GENRES_WEIGHT = [5, 5, 7, 1, 5, 6, 6, 6, 8, 6, 5]
+    GENRES_WEIGHT = [4, 4, 7, 1, 5, 7, 6, 7, 8, 7, 5]
 
     ######## ENHANCES ########
     ENHANCES = ["nope", "mixmaster", "illbeats", "maestro", "jazz"]
@@ -38,8 +38,8 @@ class Randomizer:
     TRACK_COUNT_WEIGHT_LATE = [
         8,
         8,
-        5,
-        2,
+        3,
+        1,
     ]
 
     ######## WHEN ########
@@ -47,10 +47,10 @@ class Randomizer:
     WHEN_WEIGHT = [1, 1]
 
     ######## SECONDARY #######
-    SECONDARY = ["kda", "heartsteel", "pentakill"]
+    SECONDARY = ["kda", "heartsteel", "pentakill", "truedamage"]
     SECONDARY_WEIGHT = [3, 2, 3]
     SECONDARY_CHANCE = (
-        90  # % chance of adding a secondary when 2 of same genre are selected
+        100  # % chance of adding a secondary when 2 of same genre are selected and secondary is available
     )
 
     def __init__(self):

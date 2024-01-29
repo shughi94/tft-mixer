@@ -8,6 +8,7 @@
 OR:
 `python3 main.py --arg1 --arg2 --arg3 ...`
 where args can be:
+- loop: `--loop` -> it goes on and on
 - all genres: `--pentakill`, `--country`, `--disco`, ...
 - specific track: `--country_m`, `disco_d`, `pentakill_s`, ...
     - add `_m` for main, `_d` for drums, `_s` for secondary
@@ -31,13 +32,18 @@ where args can be:
 
 # dependencies
 pip3 install pydub
-apt-get install python3-pydub
+pip3 install pygame
 
-might also need ffmpeg if on a toaster (maybe?)
+
+might also need ffmpeg if not installed
+on windows just follow https://phoenixnap.com/kb/ffmpeg-windows
+
+
 
 # TODO
 https://pypi.org/project/PyAudio/ ??
-check bitrate export
+
+-> my extracted files are ~90 kb/s bitrate, current are 40 kb/s
 
 # idk info
 `ffprobe tracks/8bit_early_main.ogg | grep Stream`
