@@ -1,136 +1,137 @@
 import random
 
+TRACK_FOLDER = "new_tracks"
 
 class EnhancesEarly:
-    maestro = "./tracks/maestro_early.ogg"
-    illbeats = "./tracks/illbeats_early.ogg"
-    mixmaster = "./tracks/mixmaster_early.ogg"
-    jazz = "./tracks/jazz_early.ogg"
+    maestro = "./"+TRACK_FOLDER+"/maestro_early.ogg"
+    illbeats = "./"+TRACK_FOLDER+"/illbeats_early.ogg"
+    mixmaster = "./"+TRACK_FOLDER+"/mixmaster_early.ogg"
+    jazz = "./"+TRACK_FOLDER+"/jazz_early.ogg"
 
 
 class EnhancesLate:
-    maestro = "./tracks/maestro_late.ogg"
-    illbeats = "./tracks/illbeats_late.ogg"
-    mixmaster = "./tracks/mixmaster_late.ogg"
-    jazz = "./tracks/jazz_late.ogg"
+    maestro = "./"+TRACK_FOLDER+"/maestro_late.ogg"
+    illbeats = "./"+TRACK_FOLDER+"/illbeats_late.ogg"
+    mixmaster = "./"+TRACK_FOLDER+"/mixmaster_late.ogg"
+    jazz = "./"+TRACK_FOLDER+"/jazz_late.ogg"
 
 
 class GenresEarly:
     country = [
-        "./tracks/country_early_drums.ogg",
-        "./tracks/country_early_main.ogg",
+        "./"+TRACK_FOLDER+"/country_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/country_early_main.ogg",
     ]
     pentakill = [
-        "./tracks/pentakill_early_drums.ogg",
-        "./tracks/pentakill_early_main.ogg",
-        "./tracks/pentakill_early_secondary.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_early_main.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_early_secondary.ogg",
     ]
     heartsteel = [
-        "./tracks/heartsteel_early_drums.ogg",
-        "./tracks/heartsteel_early_main.ogg",
-        "./tracks/heartsteel_early_secondary.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_early_main.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_early_secondary.ogg",
     ]
     bit = [
-        "./tracks/8bit_early_drums.ogg",
-        "./tracks/8bit_early_main.ogg",
+        "./"+TRACK_FOLDER+"/8bit_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/8bit_early_main.ogg",
     ]
     disco = [
-        "./tracks/disco_early_drums.ogg",
-        "./tracks/disco_early_main.ogg",
+        "./"+TRACK_FOLDER+"/disco_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/disco_early_main.ogg",
     ]
     kda = [
-        "./tracks/kda_early_drums.ogg",
-        "./tracks/kda_early_main.ogg",
-        "./tracks/kda_early_secondary.ogg",
+        "./"+TRACK_FOLDER+"/kda_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/kda_early_main.ogg",
+        "./"+TRACK_FOLDER+"/kda_early_secondary.ogg",
     ]
     emo = [
-        "./tracks/emo_early_drums.ogg",
-        "./tracks/emo_early_main.ogg",
+        "./"+TRACK_FOLDER+"/emo_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/emo_early_main.ogg",
     ]
     edm = [
-        "./tracks/edm_early_drums.ogg",
-        "./tracks/edm_early_main.ogg",
+        "./"+TRACK_FOLDER+"/edm_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/edm_early_main.ogg",
     ]
     punk = [
-        "./tracks/punk_early_drums.ogg",
-        "./tracks/punk_early_main.ogg",
+        "./"+TRACK_FOLDER+"/punk_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/punk_early_main.ogg",
     ]
     truedamage = [
-        "./tracks/truedamage_early_drums.ogg",
-        "./tracks/truedamage_early_main.ogg",
-        "./tracks/truedamage_early_secondary.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_early_drums.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_early_main.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_early_secondary.ogg",
     ]
-    hyperpop = ["./tracks/hyperpop_early_main.ogg"]
+    hyperpop = ["./"+TRACK_FOLDER+"/hyperpop_early_main.ogg"]
 
 
 class GenresLate:
     country = [
-        "./tracks/country_late_drums.ogg",
-        "./tracks/country_late_main.ogg",
+        "./"+TRACK_FOLDER+"/country_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/country_late_main.ogg",
     ]
     disco = [
-        "./tracks/disco_late_drums.ogg",
-        "./tracks/disco_late_main.ogg",
+        "./"+TRACK_FOLDER+"/disco_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/disco_late_main.ogg",
     ]
     bit = [
-        "./tracks/8bit_late_drums.ogg",
-        "./tracks/8bit_late_main.ogg",
+        "./"+TRACK_FOLDER+"/8bit_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/8bit_late_main.ogg",
     ]
     heartsteel = [
-        "./tracks/heartsteel_late_drums.ogg",
-        "./tracks/heartsteel_late_main.ogg",
-        "./tracks/heartsteel_late_secondary.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_late_main.ogg",
+        "./"+TRACK_FOLDER+"/heartsteel_late_secondary.ogg",
     ]
     pentakill = [
-        "./tracks/pentakill_late_drums.ogg",
-        "./tracks/pentakill_late_main.ogg",
-        "./tracks/pentakill_late_secondary.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_late_main.ogg",
+        "./"+TRACK_FOLDER+"/pentakill_late_secondary.ogg",
     ]
     kda = [
-        "./tracks/kda_late_drums.ogg",
-        "./tracks/kda_late_main.ogg",
-        "./tracks/kda_late_secondary.ogg",
+        "./"+TRACK_FOLDER+"/kda_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/kda_late_main.ogg",
+        "./"+TRACK_FOLDER+"/kda_late_secondary.ogg",
     ]
     emo = [
-        "./tracks/emo_late_drums.ogg",
-        "./tracks/emo_late_main.ogg",
+        "./"+TRACK_FOLDER+"/emo_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/emo_late_main.ogg",
     ]
     edm = [
-        "./tracks/edm_late_drums.ogg",
-        "./tracks/edm_late_main.ogg",
+        "./"+TRACK_FOLDER+"/edm_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/edm_late_main.ogg",
     ]
     punk = [
-        "./tracks/punk_late_drums.ogg",
-        "./tracks/punk_late_main.ogg",
+        "./"+TRACK_FOLDER+"/punk_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/punk_late_main.ogg",
     ]
     truedamage = [
-        "./tracks/truedamage_late_drums.ogg",
-        "./tracks/truedamage_late_main.ogg",
-        "./tracks/truedamage_late_secondary.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_late_drums.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_late_main.ogg",
+        "./"+TRACK_FOLDER+"/truedamage_late_secondary.ogg",
     ]
-    hyperpop = ["./tracks/hyperpop_late_drums.ogg", "./tracks/hyperpop_late_main.ogg"]
+    hyperpop = ["./"+TRACK_FOLDER+"/hyperpop_late_drums.ogg", "./"+TRACK_FOLDER+"/hyperpop_late_main.ogg"]
 
 
 class Pogs:
     combos = [
         [
-            "./tracks/hyperpop_late_drums.ogg",
-            "./tracks/hyperpop_late_main.ogg",
-            "./tracks/emo_late_drums.ogg",
-            "./tracks/pentakill_late_secondary.ogg",
-            "./tracks/mixmaster_late.ogg",
-            "./tracks/illbeats_late.ogg",
+            "./"+TRACK_FOLDER+"/hyperpop_late_drums.ogg",
+            "./"+TRACK_FOLDER+"/hyperpop_late_main.ogg",
+            "./"+TRACK_FOLDER+"/emo_late_drums.ogg",
+            "./"+TRACK_FOLDER+"/pentakill_late_secondary.ogg",
+            "./"+TRACK_FOLDER+"/mixmaster_late.ogg",
+            "./"+TRACK_FOLDER+"/illbeats_late.ogg",
         ],
         [
-            "./tracks/disco_late_drums.ogg",
-            "./tracks/disco_late_main.ogg",
-            "./tracks/hyperpop_late_main.ogg",
-            "./tracks/jazz_late.ogg",
+            "./"+TRACK_FOLDER+"/disco_late_drums.ogg",
+            "./"+TRACK_FOLDER+"/disco_late_main.ogg",
+            "./"+TRACK_FOLDER+"/hyperpop_late_main.ogg",
+            "./"+TRACK_FOLDER+"/jazz_late.ogg",
         ],
         [
-            "./tracks/punk_late_drums.ogg",
-            "./tracks/punk_late_main.ogg",
-            "./tracks/illbeats_late.ogg",
+            "./"+TRACK_FOLDER+"/punk_late_drums.ogg",
+            "./"+TRACK_FOLDER+"/punk_late_main.ogg",
+            "./"+TRACK_FOLDER+"/illbeats_late.ogg",
         ],
     ]
 
@@ -139,6 +140,6 @@ class Pogs:
 
     def getThePog(self):
         return [
-            "./tracks/country_early_drums.ogg",
-            "./tracks/country_early_main.ogg",
+            "./"+TRACK_FOLDER+"/country_early_drums.ogg",
+            "./"+TRACK_FOLDER+"/country_early_main.ogg",
         ]

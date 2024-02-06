@@ -3,7 +3,7 @@ import os
 
 
 class Randomizer:
-    FILE_PATH = "tracks"
+    TRACK_FOLDER = "new_tracks"
     INSTRUMENTS = ["drums", "main"]
     KEEP_TOGETHER_TRACK_CHANCE = 91 # when choosing 2 tracks, this is the % chance of keeping together drums + main of same genre
 
@@ -74,9 +74,9 @@ class Randomizer:
         file = ""
         # fucking hyperpop do not have drums early
         if genre == "hyperpop" and when == "early" and instrument == "drums":
-            file = self.FILE_PATH + os.sep + "hyperpop_early_main.ogg"
+            file = self.TRACK_FOLDER + os.sep + "hyperpop_early_main.ogg"
         else:
-            file = self.FILE_PATH + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
+            file = self.TRACK_FOLDER + os.sep + genre + "_" + when + "_" + instrument + ".ogg"
         if file not in self.mix:
             self.mix.append(file)
 
@@ -183,7 +183,7 @@ class Randomizer:
                 enhances_final.append(enhances_choice)
                 if enhances_choice != "nope":
                     self.mix.append(
-                        self.FILE_PATH
+                        self.TRACK_FOLDER
                         + os.sep
                         + enhances_choice
                         + "_"

@@ -8,7 +8,7 @@ from pydub import AudioSegment
 
 
 class Player:
-    COMPLETE_FILE = "tracks" + os.sep + "final.ogg"
+    COMPLETE_FILE = "final.ogg"
 
     def __init__(self, volume=0.5, frequency=44100, buffer=512) -> None:
         self.buffer = buffer
@@ -39,10 +39,14 @@ class Player:
         combined = None
         for file in files:
             sound = AudioSegment.from_ogg(file)
-            # if "maestro" in file:
-            #     sound = sound - 3.5  # decrese decibel, -10 max
+            if "maestro" in file:
+                sound = sound - 2  # decrese decibel, -10 max
+            if "illbeats" in file:
+                sound = sound - 2  # decrese decibel, -10 max
             if "jazz" in file:
                 sound = sound - 2.5  # decrese decibel, -10 max
+            if "mixmaster" in file:
+                sound = sound - 2  # decrese decibel, -10 max
             old_combined = combined
             if first:
                 combined = sound

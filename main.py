@@ -107,7 +107,7 @@ first_time = True
 while first_time or loop:
     first_time = False
     tracks = args_to_tracks(sys.argv)
-    player = Player(volume=0.5, frequency=44100, buffer=4096)
+    player = Player(volume=0.3, frequency=44100, buffer=4096)
     player.overlay_multiple_ogg(tracks)
     player.play_track()
     print("\n")
