@@ -42,7 +42,7 @@ class Player:
             if "maestro" in file:
                 sound = sound - 2  # decrese decibel, -10 max
             if "illbeats" in file:
-                sound = sound - 2  # decrese decibel, -10 max
+                sound = sound - 3  # decrese decibel, -10 max
             if "jazz" in file:
                 sound = sound - 2.5  # decrese decibel, -10 max
             if "mixmaster" in file:
