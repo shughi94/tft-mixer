@@ -34,17 +34,13 @@ where args can be:
 pip3 install pydub
 pip3 install pygame
 
-
 might also need ffmpeg if not installed
+
 on windows just follow https://phoenixnap.com/kb/ffmpeg-windows
-
-
 
 # TODO
 https://pypi.org/project/PyAudio/ ??
 
--> my extracted files are ~90 kb/s bitrate, current are 40 kb/s
-
-# idk info
-`ffprobe tracks/8bit_early_main.ogg | grep Stream`
+# idk info for me
+`ffprobe tracks/8bit_early_main.ogg | grep Stream` -> get bitrate
 
