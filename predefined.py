@@ -7,6 +7,7 @@ class EnhancesEarly:
     illbeats = "./"+TRACK_FOLDER+"/illbeats_early.ogg"
     mixmaster = "./"+TRACK_FOLDER+"/mixmaster_early.ogg"
     jazz = "./"+TRACK_FOLDER+"/jazz_early.ogg"
+    piano = "./"+TRACK_FOLDER+"/piano_early.ogg"
 
 
 class EnhancesLate:
@@ -14,6 +15,7 @@ class EnhancesLate:
     illbeats = "./"+TRACK_FOLDER+"/illbeats_late.ogg"
     mixmaster = "./"+TRACK_FOLDER+"/mixmaster_late.ogg"
     jazz = "./"+TRACK_FOLDER+"/jazz_late.ogg"
+    piano = "./"+TRACK_FOLDER+"/piano_late.ogg"
 
 
 class GenresEarly:

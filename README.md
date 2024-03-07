@@ -12,6 +12,11 @@ where args can be:
 - random: `--random` will create a random track using the randomizer (can be customized with weights)
 - pogs: `--pogs` selected list of good track combos (to be updated)
 - when: by default, it will use the early version of the songs. Adding `--late` to the args uses the lategame version of the songs
+- using `--both` creates both early and late tracks #TODO 
+
+## full genres
+`GENRES = ["heartsteel","truedamage","kda","edm","8bit","disco","hyperpop","punk","country","pentakill","emo"]`
+`ENHANCES = ["piano", "mixmaster", "illbeats", "maestro", "jazz"]`
 
 ## examples
 `python3 main.py --pentakill --kda_s`

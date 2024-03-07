@@ -62,6 +62,8 @@ def args_to_tracks(args):
         elif arg == "--pogs":
             tracks = Pogs().getRandomPog()
             continue
+        elif arg == "--both":
+            pass # TODO
         else:
             tmp_tracks = _get_predefined_genre(genre, predefined)
 
@@ -92,6 +94,8 @@ def args_to_tracks(args):
                 tracks.append(predefined_enhance.mixmaster)
             case "--maestro":
                 tracks.append(predefined_enhance.maestro)
+            case "--piano":
+                tracks.append(predefined_enhance.piano)
             case _:
                 pass
 
